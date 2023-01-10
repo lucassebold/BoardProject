@@ -31,25 +31,22 @@ const Board = styled.div`
   }
 `;
 
-const BoardCard = ({ boardsData }) => {
+const BoardCard = ({ item, deleteBoard }) => {
+
   return (
     <Board>
-      {boardsData.map((item) => {
-        return (
-          <div className="board-box">
-            <div className="board-image">{item.image}</div>
-            <div className="board-information">
-              <div className="top-items">
-                <span className="board-name">{item.name}</span>
-              </div>
-              <div className="bottom-items">
-                {/* <Icon name={item.iconLeft} color="#333" /> */}
-                <MdFavorite className="icon" />
-              </div>
-            </div>
+      <div className="board-box">
+        <div className="board-image"></div>
+        <div className="board-information">
+          <div className="top-items">
+            <span className="board-name">{item.name}</span>
           </div>
-        );
-      })}
+          <div className="bottom-items">
+            {/* <Icon name={item.iconLeft} color="#333" /> */}
+            <MdFavorite className="icon" onClick={() => deleteBoard(item.id)} />
+          </div>
+        </div>
+      </div>
     </Board>
   );
 };
